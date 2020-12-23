@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'data.dart';
-import 'w_loginPage.dart';
-import 'sizeConfig.dart';
+import 'M_dataTXT.dart';
+import 'VW_loginPage.dart';
+import 'M_sizeConfig.dart';
 
 class LoginPage extends StatelessWidget {
   @override
@@ -9,15 +9,15 @@ class LoginPage extends StatelessWidget {
     SizeConfig().init(context); //initSizeConfig
     return MaterialApp(
       home: Scaffold(
-        resizeToAvoidBottomInset: true,
+        // resizeToAvoidBottomInset: true,
         appBar: AppBar(
-          title: Text(ZDATA.xMainPageTitle),
+          title: Text(DataTXT.xMainPageTitle),
           actionsIconTheme: IconThemeData(color: Colors.white),
           backgroundColor: Colors.green,
           bottom: PreferredSize(
               child: Container(
                 color: Colors.yellow,
-                height: 4.0,
+                height: 10.0,
               ),
               preferredSize: Size.fromHeight(4.0)),
           centerTitle: true,

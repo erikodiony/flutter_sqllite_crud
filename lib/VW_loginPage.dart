@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'data.dart';
-import 'sizeConfig.dart';
+import 'M_dataTXT.dart';
+import 'M_sizeConfig.dart';
+import 'C_DataDB.dart';
 
 class IMGtitle extends StatelessWidget {
   Widget build(BuildContext context) {
@@ -8,11 +9,11 @@ class IMGtitle extends StatelessWidget {
       margin: EdgeInsets.only(left: 20, right: 20, top: 20, bottom: 20),
       alignment: Alignment.center,
       height: SizeConfig.screenHeight / 4,
-      width: SizeConfig.screenWidth / 2.5,
+      width: SizeConfig.screenWidth / 2,
       decoration: BoxDecoration(
         color: Colors.white10,
         image: DecorationImage(
-          image: AssetImage(ZDATA.aImg_1),
+          image: AssetImage(DataTXT.aImg_1),
           fit: BoxFit.fill,
         ),
       ),
@@ -37,7 +38,7 @@ class FRMlogin extends StatelessWidget {
 class LBLtitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
-      ZDATA.xLogin_1,
+      DataTXT.xLogin_1,
       textAlign: TextAlign.center,
       style: TextStyle(
           fontWeight: FontWeight.bold, color: Colors.black, fontSize: 25),
@@ -49,7 +50,7 @@ class INPusername extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       decoration: InputDecoration(
-        labelText: ZDATA.xLogin_3,
+        labelText: DataTXT.xLogin_3,
         labelStyle: TextStyle(
           fontWeight: FontWeight.bold,
         ),
@@ -62,7 +63,7 @@ class INPpassword extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       decoration: InputDecoration(
-        labelText: ZDATA.xLogin_4,
+        labelText: DataTXT.xLogin_4,
         labelStyle: TextStyle(
           fontWeight: FontWeight.bold,
         ),
@@ -85,7 +86,7 @@ class BTXforgotPassword extends StatelessWidget {
                   Navigator.pushNamed(context, "/");
                 },
                 child: Text(
-                  ZDATA.xLogin_2,
+                  DataTXT.xLogin_2,
                   style: TextStyle(
                     color: Colors.blue,
                     fontWeight: FontWeight.bold,
@@ -102,11 +103,15 @@ class BTNlogin extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton.icon(
-      label: Text(ZDATA.xLogin_5),
-      icon: Icon(Icons.login),
-      onPressed: () {
-        Navigator.pushNamed(context, "/");
-      },
-    );
+        label: Text(DataTXT.xLogin_5),
+        icon: Icon(Icons.login),
+        onPressed: () {
+          CtlDB _ctlDB = new CtlDB();
+          _ctlDB.initPrdDb();
+          // Navigator.push(
+          //   context,
+          //   MaterialPageRoute(builder: (context) => Dashboard()),
+          // );
+        });
   }
 }
